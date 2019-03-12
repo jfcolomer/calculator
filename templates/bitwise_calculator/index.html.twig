@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bitwise Calculator{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="clearfix" style="margin-top: 10%;"></div>
+        <div class="row">
+            <div class="col-12 col-md-12 col-xs-12 col-xl-12">
+                <div class="container-fluid">
+                    <div class="container p-t-1">
+                        <div class="jumbotron col-xl-4 col-xl-offset-4 col-md-6 col-md-offset-3 p-x-3 p-y-3 col-xs-12 bg-inverse">
+                            <div class="input-group input-group-sm col-xs-12 p-a-0">
+                                <input class="col-xs-12 form-control text-xs-right" id="calcscreen" type="text"/>
+                            </div>
+                            <div class="input-group input-group-lg col-xs-12 p-a-0">
+                                <input class="form-control text-xs-right" id="numberscreen" type="text"/>
+                            </div>
+                            <div class="col-xs-7 calc__clearpad p-a-0 m-t-2">
+                                <button class="btn btn-danger col-xs-4" id="ce" type="button">CE</button>
+                                <button class="btn btn-danger col-xs-4" id="c" type="button">C</button>
+                                <button class="btn btn-secondary col-xs-4" id="±" type="button"> ±</button>
+                            </div>
+                            <div class="col-xs-5 calc__clearpad p-a-0 m-t-2">
+                                <button class="btn btn-secondary col-xs-12 numbers" id="ans" type="button"> ANS</button>
+                            </div>
+                            <div class="col-xs-7 calc__numberpad p-a-0">
+                                {% for button in numbers %}
+                                    <button class="btn btn-lg btn-secondary col-xs-4 numbers" func="{{ button }}"
+                                            type="button">{{ button }}
+                                    </button>
+                                {% endfor %}
+                            </div>
+                            <div class="col-xs-5 calc__operatorpad p-a-0">
+                                {% for button in operators %}
+                                    <button class="btn btn-lg btn-secondary col-xs-6 operator" func="{{ button }}"
+                                            type="button">{{ button }}
+                                    </button>
+                                {% endfor %}
+                                <button class="btn btn-lg btn-secondary col-xs-6" func="=" id="equals" type="button">=
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
